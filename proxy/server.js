@@ -28,7 +28,8 @@ app.get('/rooms/:room_id/reservations', (req, res) => {
     })
 })
 
-app.get('photos/byroom', (req, res) => {
+app.get('/photos/byroom/:roomid/all', (req, res) => {
+  console.log(req.params);
   axios.get(`http://localhost:3002/photos/byroom/${req.params.roomid}/all`)
     .then((response) => {
       res.end(JSON.stringify(response.data));
